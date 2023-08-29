@@ -6,6 +6,7 @@ import MainScreen from './Pages/main.screen';
 import LoginScreen from './Pages/Auth/login.screen';
 import CredentialSreen from './Pages/extra/credential.screen';
 import UpdateLogScreen from './Pages/extra/updatelog.screen';
+import AddJamaahScreen from './Pages/Jamaah/addJamaah.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ const Routes = () => {
         <>
             <Stack.Navigator>
                 {/* <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} /> */}
+
                 {/* Main */}
                 <Stack.Screen name="Main" component={MainScreen} options={{
                     headerShown: false, statusBarColor: colorPrimary,
@@ -23,6 +25,17 @@ const Routes = () => {
                     },
                     // headerTitleAlign: 'center',
                     // title: 'Riwayat',
+                }} />
+
+                {/* Jamaah */}
+                <Stack.Screen name="Add Jamaah" component={AddJamaahScreen} options={{
+                    headerShown: true, statusBarColor: colorPrimary,
+                    headerTintColor: 'white',
+                    headerStyle: {
+                        backgroundColor: colorPrimary,
+                    },
+                    headerTitleAlign: 'center',
+                    title: 'Daftar Jamaah',
                 }} />
 
 

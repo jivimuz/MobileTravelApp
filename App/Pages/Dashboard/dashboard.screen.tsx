@@ -2,10 +2,10 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
 import { Box, Center, Divider, Fab, Spacer } from 'native-base'
-import { faPlus, faUserTie } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faQuestion, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, backgroundColor: colorPrimary }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20 }}>
@@ -14,7 +14,8 @@ const DashboardScreen = () => {
                 </View>
             </View>
 
-            <Fab onPress={() => { }} placement="top-right" renderInPortal={false} label="Daftar Jamaah" shadow={2} icon={<FontAwesomeIcon icon={faPlus} color={'white'} size={25} />} size="md" />
+            <Fab onPress={() => { navigation.push('Add Jamaah') }} placement="top-right" renderInPortal={false} label="Daftar " shadow={2} icon={<FontAwesomeIcon icon={faPlus} color={'white'} size={25} />} size="md" />
+            <Fab placement="top-right" right={130} renderInPortal={false} style={{ backgroundColor: 'orange' }} shadow={2} icon={<FontAwesomeIcon icon={faQuestion} color={'white'} size={25} />} size="sm" />
             <View style={{ marginVertical: 10, marginHorizontal: 20 }}>
                 <Divider bg="white" />
             </View>
