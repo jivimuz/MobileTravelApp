@@ -40,7 +40,7 @@ const Routes = () => {
                 <Stack.Screen name="Add Haji" component={AddHajiScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                 {/* Event */}
-                <Stack.Screen name="Event" component={EventScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Event" component={EventScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
 
                 {/* Paket */}
                 <Stack.Screen name="Paket" component={PaketScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />

@@ -325,6 +325,14 @@ export const mainStyle = StyleSheet.create({
         marginTop: -5,
         fontWeight: 'bold',
         fontSize: 30
+    },
+    eventBanner: {
+        minHeight: 150,
+        marginHorizontal: 10,
+        marginVertical: 10,
+        borderRadius: 30,
+        backgroundColor: colorNegative,
+        padding: 20,
     }
 })
 

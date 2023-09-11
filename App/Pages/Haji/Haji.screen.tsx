@@ -37,7 +37,7 @@ const HajiScreen = ({ navigation }) => {
                                         {/* <Image source={uri:''} /> */}
                                     </View>
                                     <View style={{ marginLeft: 10 }}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>Nama yg Umrah</Text>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>Nama Haji</Text>
                                         <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>Laki-laki</Text>
                                     </View>
                                 </View>
