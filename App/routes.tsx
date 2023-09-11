@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colorNegative, colorPrimary } from './Style/style';
 import LoginScreen from './Pages/Auth/login.screen';
 import CredentialSreen from './Pages/extra/credential.screen';
-import UpdateLogScreen from './Pages/extra/updatelog.screen';
 import AddJamaahScreen from './Pages/Jamaah/addJamaah.screen';
 import RewardScreen from './Pages/reward/reward.screen';
 import ProfileScreen from './Pages/Profile/profile.screen';
@@ -15,6 +14,7 @@ import AddHajiScreen from './Pages/Haji/addHajiscreen';
 import EventScreen from './Pages/Event/Event.screen';
 import PaketScreen from './Pages/Paket/Paket.screen';
 import NotificationScreen from './Pages/Notification/Notification.screen';
+import PasswordScreen from './Pages/Profile/Password.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,13 +22,14 @@ const Routes = () => {
     return (
         <>
             <Stack.Navigator>
-                {/* <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} /> */}
+                <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
 
                 {/* Main */}
                 <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false, statusBarColor: 'rgb(206,243,252)' }} />
 
                 {/* Profile */}
                 <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Password" component={PasswordScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                 {/* Jamaah */}
                 <Stack.Screen name="Jamaah" component={JamaahScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
@@ -49,8 +50,7 @@ const Routes = () => {
 
                 {/* Extra */}
                 <Stack.Screen name="Notification" component={NotificationScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
-                <Stack.Screen name="Credentials" component={CredentialSreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
-                <Stack.Screen name="Update Log" component={UpdateLogScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Credentials" component={CredentialSreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
 
 
             </Stack.Navigator>

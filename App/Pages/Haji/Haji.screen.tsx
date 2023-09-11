@@ -25,7 +25,7 @@ const HajiScreen = ({ navigation }) => {
             <View style={{ marginVertical: 10, marginHorizontal: 20 }}>
                 <Divider bg="white" />
             </View>
-            <View style={{ backgroundColor: colorNegative }}>
+            <View style={{ backgroundColor: colorNegative, borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingTop: 10 }}>
                 <ScrollView style={{ marginHorizontal: 20 }} showsVerticalScrollIndicator={false}>
 
                     {Array.from({ length: 15 }).map((_, i) => (
@@ -37,7 +37,7 @@ const HajiScreen = ({ navigation }) => {
                                         {/* <Image source={uri:''} /> */}
                                     </View>
                                     <View style={{ marginLeft: 10 }}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>Ujang</Text>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>Nama yg Umrah</Text>
                                         <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>Laki-laki</Text>
                                     </View>
                                 </View>

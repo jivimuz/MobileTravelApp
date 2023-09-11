@@ -52,14 +52,14 @@ const LoginScreen = ({ navigation }) => {
                             secureTextEntry={true}
                         />
 
-                        <Button mode='contained' style={[mainStyle.btn, mainStyle.bgPrimary]} onPress={() => { login(username, password) }} >LOGIN</Button>
+                        <Button mode='contained' style={[mainStyle.btn, mainStyle.bgPrimary]} onPress={() => { navigation.replace('Dashboard') }} >LOGIN</Button>
 
                         <Button uppercase={false} style={mainStyle.btn} textColor={colorPrimary}
                             onPress={() => {
-                                Linking.openURL('https://api.whatsapp.com/send/?phone=6282120741970&text=Bantuan+Lupa+Password&type=phone_number&app_absent=0')
+                                Linking.openURL('https://api.whatsapp.com/send/?phone=6282120741970&text=Daftar+agen&type=phone_number&app_absent=0')
                                 // navigation.push('ResetPassword')
                             }}
-                        >Lupa Password?</Button>
+                        >Daftar Agen?</Button>
                     </Card.Content>
                 </Card>
             </View>
