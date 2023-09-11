@@ -6,6 +6,7 @@ export const colorSecondary2 = 'rgb(236, 236, 236)'
 export const colorDanger = 'rgb(203, 20, 20)'
 export const colorSuccess = 'rgb(12, 152, 45)'
 export const colorWarning = 'rgb(255, 180, 51)'
+export const colorNegative = 'white'
 
 export const mainStyle = StyleSheet.create({
     contentCenter: {
@@ -33,10 +34,10 @@ export const mainStyle = StyleSheet.create({
         fontSize: 23
     },
     titleSection: {
-        marginHorizontal: 30,
-        marginVertical: 20,
+        marginHorizontal: 20,
+        marginVertical: 10,
         fontWeight: "bold",
-        fontSize: 15
+        fontSize: 18
     },
     cardTitle: {
         color: colorPrimary,
@@ -112,9 +113,8 @@ export const mainStyle = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 10,
         position: 'absolute',
-        top: 90,
         flexDirection: 'row',
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         alignItems: 'center',
     },
     categoryContainer: {
@@ -123,13 +123,36 @@ export const mainStyle = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    iconContainer: {
-        height: 65,
-        width: 65,
-        backgroundColor: colorSecondary,
+    scheduleContainer: {
+        height: 80,
+        width: 170,
+        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10
+        borderRadius: 10,
+    },
+    scheduleContainer2: {
+        height: 80,
+        width: 170,
+        backgroundColor: '#E0E0E0',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    iconContainer: {
+        height: 90,
+        width: 90,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    iconContainer2: {
+        height: 110,
+        width: 160,
+        backgroundColor: colorPrimary,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
     },
     iconBigContainer: {
         marginHorizontal: 20,
@@ -143,14 +166,16 @@ export const mainStyle = StyleSheet.create({
     box: {
         padding: 20,
         borderRadius: 15,
-        flexDirection: 'row',
         width: '100%',
-        justifyContent: 'space-between'
     },
     textSmall: {
-        marginTop: 5,
-        fontSize: 8,
-        color: colorPrimary
+        fontSize: 10,
+        color: 'black',
+    },
+    textSmallWhite: {
+        fontSize: 10,
+        color: 'white',
+        fontWeight: 'bold'
     },
     textBig: {
         marginTop: 5,
@@ -214,11 +239,9 @@ export const mainStyle = StyleSheet.create({
         backgroundColor: colorPrimary
     },
     header: {
-        paddingVertical: 20,
-        paddingHorizontal: 20,
+        paddingVertical: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: colorPrimary
     },
     map: {
         ...StyleSheet.absoluteFillObject,
@@ -292,4 +315,16 @@ export const mainStyle = StyleSheet.create({
         marginTop: 20,
         borderRadius: 20,
     },
+    textSign: {
+        marginHorizontal: 10,
+        fontWeight: 'bold',
+        fontSize: 15
+    },
+    textSignBanner: {
+        marginHorizontal: 10,
+        marginTop: -5,
+        fontWeight: 'bold',
+        fontSize: 30
+    }
 })
+

@@ -1,12 +1,20 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { colorPrimary } from './Style/style';
-import MainScreen from './Pages/main.screen';
+import { colorNegative, colorPrimary } from './Style/style';
 import LoginScreen from './Pages/Auth/login.screen';
 import CredentialSreen from './Pages/extra/credential.screen';
 import UpdateLogScreen from './Pages/extra/updatelog.screen';
 import AddJamaahScreen from './Pages/Jamaah/addJamaah.screen';
+import RewardScreen from './Pages/reward/reward.screen';
+import ProfileScreen from './Pages/Profile/profile.screen';
+import DashboardScreen from './Pages/Dashboard/dashboard.screen';
+import JamaahScreen from './Pages/Jamaah/jamaah.screen';
+import HajiScreen from './Pages/Haji/Haji.screen';
+import AddHajiScreen from './Pages/Haji/addHajiscreen';
+import EventScreen from './Pages/Event/Event.screen';
+import PaketScreen from './Pages/Paket/Paket.screen';
+import NotificationScreen from './Pages/Notification/Notification.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,47 +25,32 @@ const Routes = () => {
                 {/* <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} /> */}
 
                 {/* Main */}
-                <Stack.Screen name="Main" component={MainScreen} options={{
-                    headerShown: false, statusBarColor: colorPrimary,
-                    headerTintColor: 'white',
-                    headerStyle: {
-                        backgroundColor: colorPrimary,
-                    },
-                    // headerTitleAlign: 'center',
-                    // title: 'Riwayat',
-                }} />
+                <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false, statusBarColor: 'rgb(206,243,252)' }} />
+
+                {/* Profile */}
+                <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                 {/* Jamaah */}
-                <Stack.Screen name="Add Jamaah" component={AddJamaahScreen} options={{
-                    headerShown: true, statusBarColor: colorPrimary,
-                    headerTintColor: 'white',
-                    headerStyle: {
-                        backgroundColor: colorPrimary,
-                    },
-                    headerTitleAlign: 'center',
-                    title: 'Daftar Jamaah',
-                }} />
+                <Stack.Screen name="Jamaah" component={JamaahScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
+                <Stack.Screen name="Add Jamaah" component={AddJamaahScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
+                {/* Haji */}
+                <Stack.Screen name="Haji" component={HajiScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
+                <Stack.Screen name="Add Haji" component={AddHajiScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
-                <Stack.Screen name="Credentials" component={CredentialSreen} options={{
-                    headerShown: true, statusBarColor: colorPrimary,
-                    headerTintColor: 'white',
-                    headerStyle: {
-                        backgroundColor: colorPrimary,
-                    },
-                    headerTitleAlign: 'center',
-                    title: 'Credentials',
-                }} />
+                {/* Event */}
+                <Stack.Screen name="Event" component={EventScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
-                <Stack.Screen name="Update Log" component={UpdateLogScreen} options={{
-                    headerShown: true, statusBarColor: colorPrimary,
-                    headerTintColor: 'white',
-                    headerStyle: {
-                        backgroundColor: colorPrimary,
-                    },
-                    headerTitleAlign: 'center',
-                    title: 'Log Pengembangan',
-                }} />
+                {/* Paket */}
+                <Stack.Screen name="Paket" component={PaketScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+
+                {/* Reward */}
+                <Stack.Screen name="Reward" component={RewardScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+
+                {/* Extra */}
+                <Stack.Screen name="Notification" component={NotificationScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Credentials" component={CredentialSreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Update Log" component={UpdateLogScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
 
             </Stack.Navigator>

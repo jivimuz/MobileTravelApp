@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Card, TextInput } from 'react-native-paper';
 import { StatusBar } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
-import { colorPrimary, mainStyle } from '../../Style/style';
+import { colorNegative, colorPrimary, mainStyle } from '../../Style/style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
@@ -20,26 +20,35 @@ const LoginScreen = ({ navigation }) => {
                 {/* <View style={mainStyle.itemCenter}>
                     <Image source={Logopas} style={styles.logoSplash}></Image>
                 </View> */}
-                <Card>
-                    <Card.Title title="Silahkan Login" titleStyle={mainStyle.cardTitle}></Card.Title>
+                <Card style={{ backgroundColor: colorNegative }}>
+                    <Card.Title title="Silahkan Login" titleStyle={mainStyle.cardTitle} />
                     <Card.Content>
                         <TextInput
                             mode='outlined'
                             outlineColor={colorPrimary}
                             activeOutlineColor={colorPrimary}
+                            color
                             value={username}
+                            textColor='black'
                             onChangeText={(text) => setUsername(text)}
                             label='Username/Email'
                             keyboardType='default'
-                            right={<FontAwesomeIcon icon={faUser} color='white' />}
+                            style={{
+                                backgroundColor: colorNegative,
+                            }}
+                            right={<FontAwesomeIcon icon={faUser} color='black' />}
                         />
                         <TextInput
                             mode='outlined'
                             outlineColor={colorPrimary}
                             activeOutlineColor={colorPrimary}
+                            textColor='black'
                             value={password}
                             onChangeText={(text) => setPassword(text)}
                             label='Password'
+                            style={{
+                                backgroundColor: colorNegative,
+                            }}
                             secureTextEntry={true}
                         />
 
