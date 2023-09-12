@@ -5,7 +5,8 @@ import BGBlue from './BGBlue.jpg'
 import BGBlue2 from './BGBlue2.jpg'
 import BGBlue3 from './BGBlue3.jpg'
 import Dummy from './Dummy.jpg'
+import DummyBanner from './DummyBanner.jpg'
 
 
 
-export { Logo, LogoMain, FullLogo, BGBlue, BGBlue2, BGBlue3, Dummy }
+export { Logo, LogoMain, FullLogo, BGBlue, BGBlue2, BGBlue3, Dummy, DummyBanner }

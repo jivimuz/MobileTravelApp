@@ -1,11 +1,11 @@
-import { SafeAreaView, StyleSheet, View, Text, Linking } from 'react-native'
-import React, { useContext, useState } from 'react'
+import { ImageBackground, StyleSheet, View, Image, Linking } from 'react-native'
+import React, { useState } from 'react'
 import { Button, Card, TextInput } from 'react-native-paper';
-import { StatusBar } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
-import { colorNegative, colorPrimary, mainStyle } from '../../Style/style';
+import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { BGBlue3, Logo } from '../../../Assets';
 
 const LoginScreen = ({ navigation }) => {
     const [username, setUsername] = useState(null);
@@ -13,13 +13,12 @@ const LoginScreen = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView style={mainStyle.contentCenter}>
-            <StatusBar barStyle='dark-content' backgroundColor={colorPrimary} />
+        <ImageBackground source={BGBlue3} style={mainStyle.contentCenter}>
             <View style={mainStyle.view}>
                 {/* <Spinner visible={isLoading} color='rgb(66, 103, 178)' /> */}
-                {/* <View style={mainStyle.itemCenter}>
-                    <Image source={Logopas} style={styles.logoSplash}></Image>
-                </View> */}
+                <View style={mainStyle.itemCenter}>
+                    <Image source={Logo} style={styles.LogoImage} />
+                </View>
                 <Card style={{ backgroundColor: colorNegative }}>
                     <Card.Title title="Silahkan Login" titleStyle={mainStyle.cardTitle} />
                     <Card.Content>
@@ -63,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
                     </Card.Content>
                 </Card>
             </View>
-        </SafeAreaView >
+        </ImageBackground >
     )
 }
 
@@ -71,10 +70,10 @@ export default LoginScreen
 
 
 const styles = StyleSheet.create({
-    logoSplash: {
+    LogoImage: {
 
-        width: 120,
-        height: 120,
+        width: 150,
+        height: 150,
         marginBottom: 50,
     }
 })

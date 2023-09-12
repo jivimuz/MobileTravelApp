@@ -15,7 +15,6 @@ export const mainStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        backgroundColor: colorPrimary,
     },
     content: {
         display: "flex",
@@ -327,6 +326,14 @@ export const mainStyle = StyleSheet.create({
         fontSize: 30
     },
     eventBanner: {
+        minHeight: 150,
+        marginHorizontal: 10,
+        marginVertical: 10,
+        borderRadius: 10,
+        backgroundColor: colorNegative,
+        padding: 20,
+    },
+    paketBanner: {
         minHeight: 150,
         marginHorizontal: 10,
         marginVertical: 10,

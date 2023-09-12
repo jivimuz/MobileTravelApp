@@ -15,6 +15,7 @@ import EventScreen from './Pages/Event/Event.screen';
 import PaketScreen from './Pages/Paket/Paket.screen';
 import NotificationScreen from './Pages/Notification/Notification.screen';
 import PasswordScreen from './Pages/Profile/Password.screen';
+import PaketDetailScreen from './Pages/Paket/PaketDetail.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ const Routes = () => {
     return (
         <>
             <Stack.Navigator>
-                <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false, statusBarColor: 'rgb(206,243,252)' }} />
 
                 {/* Main */}
                 <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false, statusBarColor: 'rgb(206,243,252)' }} />
@@ -43,7 +44,8 @@ const Routes = () => {
                 <Stack.Screen name="Event" component={EventScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
 
                 {/* Paket */}
-                <Stack.Screen name="Paket" component={PaketScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                <Stack.Screen name="Paket" component={PaketScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
+                <Stack.Screen name="Paket Detail" component={PaketDetailScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                 {/* Reward */}
                 <Stack.Screen name="Reward" component={RewardScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />

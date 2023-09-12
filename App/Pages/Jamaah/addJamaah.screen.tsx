@@ -111,7 +111,6 @@ const AddJamaahScreen = ({ navigation }) => {
                 <TextInput label="Jenis Kelamin" mode='outlined' keyboardType='numbers-and-punctuation' style={{ backgroundColor: colorNegative }} textColor='black' maxLength={10} outlineColor={colorPrimary} activeOutlineColor={colorPrimary} />
                 <TextInput label="No HP" mode='outlined' keyboardType='phone-pad' style={{ backgroundColor: colorNegative }} textColor='black' outlineColor={colorPrimary} activeOutlineColor={colorPrimary} />
                 <TextInput label="No Passport" mode='outlined' keyboardType='numbers-and-punctuation' style={{ backgroundColor: colorNegative }} textColor='black' maxLength={10} outlineColor={colorPrimary} activeOutlineColor={colorPrimary} />
-                <TextInput label="No Passport" mode='outlined' keyboardType='numbers-and-punctuation' style={{ backgroundColor: colorNegative }} textColor='black' maxLength={10} outlineColor={colorPrimary} activeOutlineColor={colorPrimary} />
 
                 <TextInput label="Alamat" multiline style={{ height: 100, backgroundColor: colorNegative }} textColor='black' maxLength={255} mode='outlined' keyboardType='default' outlineColor={colorPrimary} activeOutlineColor={colorPrimary} />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
