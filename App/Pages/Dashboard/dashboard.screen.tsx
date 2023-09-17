@@ -1,21 +1,32 @@
 import { View, Text, RefreshControl, ScrollView, TouchableOpacity, Image, ImageBackground } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { colorNegative, colorPrimary, colorSecondary, colorSecondary2, mainStyle } from '../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBoxesStacked, faGift, faLandmarkDome, faMoneyBillTransfer, faMoneyBillTrendUp, faPlaneDeparture, faStarAndCrescent, faUserGear, faBell } from '@fortawesome/free-solid-svg-icons'
 import { Badge } from 'react-native-paper'
 import { BGBlue, Dummy, FullLogo, } from '../../../Assets'
+import Toaster from '../../Component/Toast.comp'
+import { AuthContext } from '../../Controller/Auth.controller'
 
 const DashboardScreen = ({ navigation }) => {
+    const { userInfo } = useContext(AuthContext);
 
     const onRefresh = () => {
         navigation.replace('Dashboard')
     };
+    const nameParts = userInfo.data.user.name.split(' ');
+
+    let firstName = '';
+
+    if (nameParts.length >= 1) {
+        firstName = nameParts[0];
+    }
+
     return (
         <ImageBackground source={BGBlue} style={{ flex: 1 }}>
             <ScrollView refreshControl={<RefreshControl onRefresh={onRefresh} />} showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
                 <View style={[mainStyle.header, { borderBottomLeftRadius: 50, paddingHorizontal: 20 }]}>
-
+                    <Toaster text={'Selamat Datang'} />
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image source={FullLogo} style={{ width: 200, height: 120, objectFit: 'contain', alignSelf: 'center' }} />
                     </View>
@@ -29,7 +40,7 @@ const DashboardScreen = ({ navigation }) => {
                 <View >
                     <View style={{ alignItems: 'center' }}>
                         <Image source={Dummy} style={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 30, borderColor: colorNegative, borderWidth: 1, marginBottom: 10 }} />
-                        <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>Selamat Datang, Ujang👋</Text>
+                        <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>Selamat Datang, {firstName}👋</Text>
                     </View>
                     <View style={{ marginHorizontal: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 }}>
                         <TouchableOpacity onPress={() => navigation.push('Event')}>

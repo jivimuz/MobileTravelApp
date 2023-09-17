@@ -1,13 +1,15 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
 import { faChevronLeft, faUserTie, faRightFromBracket, faCodeCommit, faKey } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { Dummy } from '../../../Assets'
 import { Divider } from 'react-native-paper'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
+import { AuthContext } from '../../Controller/Auth.controller'
 
 const ProfileScreen = ({ navigation }) => {
+    const { logout, userInfo } = useContext(AuthContext);
     return (
         <View style={{ flex: 1, backgroundColor: colorNegative }}>
             <View style={mainStyle.header}>
@@ -21,8 +23,8 @@ const ProfileScreen = ({ navigation }) => {
             <View style={{ marginTop: 10 }}>
                 <View style={{ alignItems: 'center' }}>
                     <Image source={Dummy} style={{ width: 140, height: 140, objectFit: 'cover', borderRadius: 70, borderColor: colorPrimary, borderWidth: 1, marginBottom: 10 }} />
-                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>Ujang Pendi</Text>
-                    <Text style={{ color: colorPrimary, fontSize: 14, fontWeight: 'bold', marginTop: 5 }}>41215303</Text>
+                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>{userInfo.data.user.name.substring(0, 20)}</Text>
+                    <Text style={{ color: colorPrimary, fontSize: 14, fontWeight: 'bold', marginTop: 5 }}>{userInfo.data.user.email}</Text>
                 </View>
             </View>
             <Divider style={{ margin: 20 }} />
@@ -50,7 +52,7 @@ const ProfileScreen = ({ navigation }) => {
                 </TouchableOpacity >
 
                 <TouchableOpacity style={[mainStyle.shadow, { height: 50, paddingHorizontal: 20, marginTop: 10, backgroundColor: colorSecondary, paddingVertical: 10, borderRadius: 20 }]}
-                    onPress={() => navigation.replace('Login')}>
+                    onPress={() => logout()}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <View style={{ borderRadius: 30, width: '50%', flexDirection: 'row', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faRightFromBracket} size={30} color={'red'} />

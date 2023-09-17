@@ -2,6 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { PaperProvider } from "react-native-paper";
 import Routes from "./App/routes";
 import { NativeBaseProvider } from "native-base";
+import { AuthProvider } from "./App/Controller/Auth.controller";
+import { MainProvider } from "./App/Controller/Main.controller";
 
 
 function App(): JSX.Element {
@@ -9,7 +11,11 @@ function App(): JSX.Element {
     <NavigationContainer>
       <NativeBaseProvider>
         <PaperProvider>
-          <Routes />
+          <AuthProvider>
+            <MainProvider>
+              <Routes />
+            </MainProvider>
+          </AuthProvider>
         </PaperProvider>
       </NativeBaseProvider>
     </NavigationContainer>
