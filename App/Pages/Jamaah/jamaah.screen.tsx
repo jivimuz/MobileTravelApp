@@ -1,13 +1,26 @@
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native'
+import React, { useContext, useEffect } from 'react'
 import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
 import { Divider, Fab, Spacer } from 'native-base'
 import { faChevronCircleLeft, faHistory, faPlus, faQuestion, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import Spinner from 'react-native-loading-spinner-overlay'
+import { AuthContext } from '../../Controller/Auth.controller'
+import { MainContext } from '../../Controller/Main.controller'
+import { BASE_URL } from '../../Config/config'
 
 const JamaahScreen = ({ navigation }) => {
+    const { isLoading } = useContext(AuthContext);
+    const { getUmrah, listUmrah } = useContext(MainContext);
+
+    useEffect(() => {
+        getUmrah()
+        console.log(listUmrah)
+    }, [])
+
     return (
         <View style={{ flex: 1, backgroundColor: colorPrimary }}>
+            <Spinner visible={isLoading} color={colorPrimary} />
             <View style={{ flexDirection: 'row', position: 'relative', marginBottom: 5 }}>
                 <TouchableOpacity style={{ alignSelf: 'center', backgroundColor: colorSecondary, padding: 15, borderTopRightRadius: 30, borderBottomRightRadius: 30, ...mainStyle.shadow, }} onPress={() => navigation.pop()}>
                     <FontAwesomeIcon icon={faChevronCircleLeft} />
@@ -20,34 +33,34 @@ const JamaahScreen = ({ navigation }) => {
                 </View>
             </View>
 
-            <Fab onPress={() => { navigation.push('Add Jamaah') }} placement="top-right" style={{ backgroundColor: 'orange' }} renderInPortal={false} label="Daftar" shadow={2} icon={<FontAwesomeIcon icon={faPlus} color={'white'} size={25} />} size="md" />
+            <Fab onPress={() => { navigation.push('Add Umrah') }} placement="top-right" style={{ backgroundColor: 'orange' }} renderInPortal={false} label="Daftar" shadow={2} icon={<FontAwesomeIcon icon={faPlus} color={'white'} size={25} />} size="md" />
             {/* <Fab onPress={() => { navigation.push('Riwayat Jamaah') }} placement="top-right" right={130} renderInPortal={false} style={{ backgroundColor: 'orange' }} shadow={2} icon={<FontAwesomeIcon icon={faHistory} color={'white'} size={25} />} size="sm" /> */}
             <View style={{ marginVertical: 10, marginHorizontal: 20 }}>
                 <Divider bg="white" />
             </View>
-            <View style={{ backgroundColor: colorNegative, borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingTop: 10 }}>
+            <View style={{ backgroundColor: colorNegative, borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingTop: 10, flex: 1 }}>
                 <ScrollView style={{ marginHorizontal: 20 }} showsVerticalScrollIndicator={false}>
-
-                    {Array.from({ length: 15 }).map((_, i) => (
-                        <TouchableOpacity key={i} style={[mainStyle.shadow, { height: 'auto', marginHorizontal: 10, marginTop: 10 }]}>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <View style={{ borderRadius: 30, width: '50%', flexDirection: 'row' }}>
-                                    <View style={{ borderRadius: 30, justifyContent: 'center', alignItems: 'center', height: 50, width: 50, backgroundColor: 'black' }}>
-                                        <FontAwesomeIcon icon={faUserTie} size={30} color={colorPrimary} />
-                                        {/* <Image source={uri:''} /> */}
+                    {listUmrah.length > 0 &&
+                        listUmrah.map((a, i) => {
+                            // console.log(`${BASE_URL}/${a.noun_photo}`)
+                            return (
+                                <TouchableOpacity key={i} style={[mainStyle.shadow, { height: 'auto', marginHorizontal: 10, marginTop: 10 }]}>
+                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                        <View style={{ borderRadius: 30, width: '50%', flexDirection: 'row' }}>
+                                            <Image source={{ uri: `${BASE_URL}/${a.noun_photo}` }} style={{ borderRadius: 30, height: 50, width: 50, objectFit: 'cover' }} />
+                                            <View style={{ marginLeft: 10 }}>
+                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>{a.name}</Text>
+                                                <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>{a.gender}</Text>
+                                            </View>
+                                        </View>
+                                        <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>{a.status} </Text>
                                     </View>
-                                    <View style={{ marginLeft: 10 }}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>Nama yg Umrah</Text>
-                                        <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>Laki-laki</Text>
+                                    <View style={{ marginTop: 10, marginHorizontal: 40 }}>
+                                        <Divider bg={colorSecondary} />
                                     </View>
-                                </View>
-                                <Text style={{ marginTop: 5, fontSize: 13, color: 'black' }}>2023-08-28</Text>
-                            </View>
-                            <View style={{ marginTop: 10, marginHorizontal: 40 }}>
-                                <Divider bg={colorSecondary} />
-                            </View>
-                        </TouchableOpacity >
-                    ))}
+                                </TouchableOpacity >
+                            )
+                        })}
                     <View style={{ height: 130 }} />
                 </ScrollView >
             </View>

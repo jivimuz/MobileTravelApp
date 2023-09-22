@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     const login = (username, password) => {
         setIsLoading(true);
         axios
-            .post(`${BASE_URL}/login`, {
+            .post(`${BASE_URL}/api/login`, {
                 email_or_username: username,
                 password: password
             }, {
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
             AsyncStorage.removeItem('userInfo');
         } else {
             axios
-                .post(`${BASE_URL}/logout`, null, {
+                .post(`${BASE_URL}/api/logout`, null, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'application/json',

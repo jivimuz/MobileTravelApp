@@ -7,24 +7,31 @@ import { Badge } from 'react-native-paper'
 import { BGBlue, Dummy, FullLogo, } from '../../../Assets'
 import Toaster from '../../Component/Toast.comp'
 import { AuthContext } from '../../Controller/Auth.controller'
+import { MainContext } from '../../Controller/Main.controller'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 const DashboardScreen = ({ navigation }) => {
-    const { userInfo } = useContext(AuthContext);
+    const { userInfo, isLoading } = useContext(AuthContext);
 
     const onRefresh = () => {
         navigation.replace('Dashboard')
     };
-    const nameParts = userInfo.data.user.name.split(' ');
+
 
     let firstName = '';
 
-    if (nameParts.length >= 1) {
-        firstName = nameParts[0];
+    if (userInfo) {
+        const nameParts = userInfo.data.user.name.split(' ');
+        if (nameParts.length >= 1) {
+            firstName = nameParts[0];
+        }
     }
+
 
     return (
         <ImageBackground source={BGBlue} style={{ flex: 1 }}>
             <ScrollView refreshControl={<RefreshControl onRefresh={onRefresh} />} showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+                <Spinner visible={isLoading} color={colorPrimary} />
                 <View style={[mainStyle.header, { borderBottomLeftRadius: 50, paddingHorizontal: 20 }]}>
                     <Toaster text={'Selamat Datang'} />
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -77,7 +84,7 @@ const DashboardScreen = ({ navigation }) => {
                     <View style={{ marginTop: 10 }}>
                         <View style={{ marginHorizontal: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                            <TouchableOpacity onPress={() => navigation.push('Jamaah')}>
+                            <TouchableOpacity onPress={() => navigation.push('Umrah')}>
                                 <View style={[mainStyle.iconContainer, { marginBottom: 10 }]}>
                                     <View style={{ width: 70, height: 70, backgroundColor: colorPrimary, alignItems: 'center', justifyContent: 'center', borderRadius: 20 }}>
                                         <FontAwesomeIcon icon={faLandmarkDome} size={28} color={colorNegative} />

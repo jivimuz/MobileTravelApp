@@ -58,8 +58,8 @@ const Routes = () => {
                         <Stack.Screen name="Password" component={PasswordScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                         {/* Jamaah */}
-                        <Stack.Screen name="Jamaah" component={JamaahScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
-                        <Stack.Screen name="Add Jamaah" component={AddJamaahScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                        <Stack.Screen name="Umrah" component={JamaahScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
+                        <Stack.Screen name="Add Umrah" component={AddJamaahScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                         {/* Haji */}
                         <Stack.Screen name="Haji" component={HajiScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
