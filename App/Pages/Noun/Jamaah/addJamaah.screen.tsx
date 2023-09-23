@@ -1,18 +1,18 @@
 import { View, Text, TouchableOpacity, ScrollView, PermissionsAndroid, Alert } from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
 import { Button, TextInput } from 'react-native-paper'
-import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
+import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faChevronLeft, faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import DropdownSelect from 'react-native-input-select'
 import DatePicker from 'react-native-date-picker'
-import { TglHariIni } from '../../Component/Tanggal.comp'
+import { TglHariIni } from '../../../Component/Tanggal.comp'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { MainContext } from '../../Controller/Main.controller'
-import { AuthContext } from '../../Controller/Auth.controller'
+import { MainContext } from '../../../Controller/Main.controller'
+import { AuthContext } from '../../../Controller/Auth.controller'
 import Spinner from 'react-native-loading-spinner-overlay'
 
-const AddHajiScreen = ({ navigation }) => {
+const AddJamaahScreen = ({ navigation }) => {
     const [name, setName] = useState(null);
     const [nik, setNik] = useState(null);
     const [nopassport, setNoPassport] = useState(null);
@@ -29,7 +29,7 @@ const AddHajiScreen = ({ navigation }) => {
     const [open, setOpen] = useState(false)
 
     const { isLoading } = useContext(AuthContext);
-    const { SendUmrah } = useContext(MainContext);
+    const { SendNoun } = useContext(MainContext);
 
     const selectImage = (func) => {
         const options = {
@@ -117,11 +117,11 @@ const AddHajiScreen = ({ navigation }) => {
                             form.append('birth_certificate_photo', akta);
                             form.append('noun_photo', foto);
                             form.append('passport_photo', passport);
-                            form.append('is_haji', 1);
+                            form.append('is_haji', 0);
 
                             // console.log(form)
 
-                            SendUmrah(form, navigation, 1);
+                            SendNoun(form, navigation, 0);
                         },
                     },
                 ],
@@ -162,7 +162,7 @@ const AddHajiScreen = ({ navigation }) => {
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </TouchableOpacity>
                 </View>
-                <Text style={{ color: colorPrimary, fontWeight: 'bold', marginRight: 20, fontSize: 35 }}> Daftar Haji</Text>
+                <Text style={{ color: colorPrimary, fontWeight: 'bold', marginRight: 20, fontSize: 35 }}> Daftar Umroh</Text>
             </View>
             <View style={{ paddingHorizontal: 20 }}>
                 <TextInput label="Nama" mode='outlined' value={name} onChangeText={(text) => setName(text)} outlineColor={colorPrimary} maxLength={50} style={{ backgroundColor: colorNegative }} textColor='black' activeOutlineColor={colorPrimary} />
@@ -182,7 +182,8 @@ const AddHajiScreen = ({ navigation }) => {
                         selectedValue={gender}
                         onValueChange={(value) => setGender(value)}
                         primaryColor={colorPrimary}
-                        dropdownStyle={{ backgroundColor: colorNegative, borderColor: colorPrimary, marginBottom: -20 }}
+                        dropdownStyle={{ backgroundColor: colorNegative, borderColor: colorPrimary, height: 10 }}
+                        // isSearchables
                         placeholderStyle={{ color: 'grey' }}
                         checkboxLabelStyle={{ color: colorPrimary }}
                     />
@@ -239,4 +240,4 @@ const AddHajiScreen = ({ navigation }) => {
     )
 }
 
-export default AddHajiScreen
+export default AddJamaahScreen

@@ -23,3 +23,17 @@ export const TglHariIni = ({ tanggal, warna }) => {
         </Text >
     );
 };
+
+export const TglReformat = ({ tanggal, warna }) => {
+    const currentDate = tanggal ? new Date(tanggal) : new Date();
+
+    const date = currentDate.getDate();
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+
+    return (
+        <Text style={{ color: warna }}>
+            {date}-{month}-{year}
+        </Text >
+    );
+};

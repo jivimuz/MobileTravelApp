@@ -11,6 +11,7 @@ export const MainProvider = ({ children }) => {
     const { token, setIsLoading } = useContext(AuthContext);
     const [listUmrah, setListUmrah] = useState({});
     const [listHaji, setListHaji] = useState({});
+    const [tempData, setTempData] = useState({});
 
 
     const getUmrah = () => {
@@ -73,7 +74,37 @@ export const MainProvider = ({ children }) => {
             })
     }
 
-    const SendUmrah = (form, navigation, nat) => {
+    const showNoun = (id) => {
+        // console.log(id)
+        setIsLoading(true)
+        axios
+            .get(`${BASE_URL}/api/nouns/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(res => {
+                setTempData(res.data.data)
+                setIsLoading(false)
+            })
+            .catch(error => {
+                console.log(error)
+                setIsLoading(false)
+                if (error.response) {
+                    Alert.alert(
+                        'Gagal',
+                        error.response.data.message,
+                    )
+                } else {
+                    Alert.alert(
+                        'Gagal',
+                        'Error')
+                }
+            })
+    }
+
+    const SendNoun = (form, navigation, nat) => {
         setIsLoading(true)
         axios
             .post(`${BASE_URL}/api/nouns`, form, {
@@ -119,11 +150,13 @@ export const MainProvider = ({ children }) => {
 
     return (
         <MainContext.Provider value={{
-            SendUmrah,
+            SendNoun,
             getUmrah,
             getHaji,
+            showNoun,
             listHaji,
             listUmrah,
+            tempData,
         }}>
             {children}
         </MainContext.Provider>

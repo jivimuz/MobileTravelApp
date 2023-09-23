@@ -1,13 +1,13 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native'
 import React, { useContext, useEffect } from 'react'
-import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
+import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../../Style/style'
 import { Divider, Fab, Spacer } from 'native-base'
 import { faChevronCircleLeft, faHistory, faPlus, faQuestion, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Spinner from 'react-native-loading-spinner-overlay'
-import { AuthContext } from '../../Controller/Auth.controller'
-import { MainContext } from '../../Controller/Main.controller'
-import { BASE_URL } from '../../Config/config'
+import { AuthContext } from '../../../Controller/Auth.controller'
+import { MainContext } from '../../../Controller/Main.controller'
+import { BASE_URL } from '../../../Config/config'
 
 const JamaahScreen = ({ navigation }) => {
     const { isLoading } = useContext(AuthContext);
@@ -15,7 +15,7 @@ const JamaahScreen = ({ navigation }) => {
 
     useEffect(() => {
         getUmrah()
-        console.log(listUmrah)
+        // console.log(listUmrah)
     }, [])
 
     return (
@@ -42,9 +42,9 @@ const JamaahScreen = ({ navigation }) => {
                 <ScrollView style={{ marginHorizontal: 20 }} showsVerticalScrollIndicator={false}>
                     {listUmrah.length > 0 &&
                         listUmrah.map((a, i) => {
-                            // console.log(`${BASE_URL}/${a.noun_photo}`)
+                            // console.log(a.id)
                             return (
-                                <TouchableOpacity key={i} style={[mainStyle.shadow, { height: 'auto', marginHorizontal: 10, marginTop: 10 }]}>
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Show Noun', { id: a.id })} style={[mainStyle.shadow, { height: 'auto', marginHorizontal: 10, marginTop: 10 }]}>
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                         <View style={{ borderRadius: 30, width: '50%', flexDirection: 'row' }}>
                                             <Image source={{ uri: `${BASE_URL}/${a.noun_photo}` }} style={{ borderRadius: 30, height: 50, width: 50, objectFit: 'cover' }} />

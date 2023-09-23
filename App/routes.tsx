@@ -4,13 +4,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colorNegative, colorPrimary } from './Style/style';
 import LoginScreen from './Pages/Auth/login.screen';
 import CredentialSreen from './Pages/extra/credential.screen';
-import AddJamaahScreen from './Pages/Jamaah/addJamaah.screen';
+import AddJamaahScreen from './Pages/Noun/Jamaah/addJamaah.screen';
 import RewardScreen from './Pages/reward/reward.screen';
 import ProfileScreen from './Pages/Profile/profile.screen';
 import DashboardScreen from './Pages/Dashboard/dashboard.screen';
-import JamaahScreen from './Pages/Jamaah/jamaah.screen';
-import HajiScreen from './Pages/Haji/Haji.screen';
-import AddHajiScreen from './Pages/Haji/addHajiscreen';
+import JamaahScreen from './Pages/Noun/Jamaah/jamaah.screen';
+import HajiScreen from './Pages/Noun/Haji/Haji.screen';
+import AddHajiScreen from './Pages/Noun/Haji/addHajiscreen';
 import EventScreen from './Pages/Event/Event.screen';
 import PaketScreen from './Pages/Paket/Paket.screen';
 import NotificationScreen from './Pages/Notification/Notification.screen';
@@ -18,6 +18,7 @@ import PasswordScreen from './Pages/Profile/Password.screen';
 import PaketDetailScreen from './Pages/Paket/PaketDetail.screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from './Controller/Auth.controller';
+import ShowNounScreen from './Pages/Noun/showNoun.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,10 +61,11 @@ const Routes = () => {
                         {/* Jamaah */}
                         <Stack.Screen name="Umrah" component={JamaahScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
                         <Stack.Screen name="Add Umrah" component={AddJamaahScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
-
                         {/* Haji */}
                         <Stack.Screen name="Haji" component={HajiScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />
                         <Stack.Screen name="Add Haji" component={AddHajiScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
+                        {/* Noun */}
+                        <Stack.Screen name="Show Noun" component={ShowNounScreen} options={{ headerShown: false, statusBarColor: colorNegative }} />
 
                         {/* Event */}
                         <Stack.Screen name="Event" component={EventScreen} options={{ headerShown: false, statusBarColor: colorPrimary }} />

@@ -32,8 +32,8 @@ const DashboardScreen = ({ navigation }) => {
         <ImageBackground source={BGBlue} style={{ flex: 1 }}>
             <ScrollView refreshControl={<RefreshControl onRefresh={onRefresh} />} showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
                 <Spinner visible={isLoading} color={colorPrimary} />
-                <View style={[mainStyle.header, { borderBottomLeftRadius: 50, paddingHorizontal: 20 }]}>
-                    <Toaster text={'Selamat Datang'} />
+                <Toaster text={'Selamat Datang'} />
+                <View style={[mainStyle.header, { paddingHorizontal: 20 }]}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image source={FullLogo} style={{ width: 200, height: 120, objectFit: 'contain', alignSelf: 'center' }} />
                     </View>
